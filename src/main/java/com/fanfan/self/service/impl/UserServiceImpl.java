@@ -11,9 +11,39 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
-    private UserMapper userMapper;
+    private UserMapper um;
     @Override
     public List<UserBean> queryAll() {
-        return userMapper.getInfo();
+        return um.getInfo();
+    }
+
+    @Override
+    public String loginIn(UserBean ub) {
+        return um.getLoginInfo(ub);
+    }
+
+    @Override
+    public int addUserInfo(UserBean ub) {
+        return um.addUserInfo(ub);
+    }
+
+    @Override
+    public int deleteOneInfo(int id) {
+        return um.deleteOneInfo(id);
+    }
+
+    @Override
+    public List<UserBean> queryById(int id) {
+        return um.queryById(id);
+    }
+
+    @Override
+    public List<UserBean> queryByName(String name) {
+        return um.queryByName(name);
+    }
+
+    @Override
+    public int updateUserInfo(UserBean ub) {
+        return um.updateUserInfo(ub);
     }
 }

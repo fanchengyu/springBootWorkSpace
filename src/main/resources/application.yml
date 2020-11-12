@@ -1,11 +1,11 @@
 
 spring:
   datasource:
-    name: fanfanbase2  #Êı¾İ¿âÃû
+    name: fanfanbase2  #åº“å
     url: jdbc:mysql://localhost:3306/fanfanbase2?serverTimezone=UTC #url
-    username: root  #ÓÃ»§Ãû
-    password:   #ÃÜÂë
-    driver-class-name: com.mysql.cj.jdbc.Driver  #Êı¾İ¿âÁ´½ÓÇı¶¯
+    username: root  #ç”¨æˆ·å
+    password:   #å¯†ç 
+    driver-class-name: com.mysql.cj.jdbc.Driver  # é©±åŠ¨åç§°
 mybatis:
-  mapper-locations: classpath:mapper/*.xml  #ÅäÖÃÓ³ÉäÎÄ¼ş
-  type-aliases-package: com.example.test.bean #ÅäÖÃÊµÌåÀà
+  mapper-locations: classpath:mapper/*.xml  #
+  type-aliases-package: com.example.test.bean #

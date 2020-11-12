@@ -16,8 +16,7 @@ class SelfApplicationTests {
     UserService us;
     @Test
     void contextLoads() {
-        UserBean ub=new UserBean(2,"344343","男","123");
-        System.out.println(ub);
+        //
     }
 
     @Test

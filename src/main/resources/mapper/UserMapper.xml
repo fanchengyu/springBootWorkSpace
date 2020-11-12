@@ -4,4 +4,43 @@
     <select id="getInfo"  resultType="com.fanfan.self.bean.UserBean">
         SELECT * FROM userinfo
     </select>
+
+    <select id="queryById" parameterType="int" resultType="com.fanfan.self.bean.UserBean">
+        select  * from  userinfo where id =#{id}
+    </select>
+    <select id="queryByName" parameterType="String" resultType="com.fanfan.self.bean.UserBean">
+        select  * from  userinfo where name =#{name}
+    </select>
+    <select id="getLoginInfo"  resultType="String">
+        SELECT pass_word FROM userinfo where name = #{name}
+    </select>
+
+
+
+    <insert id="addUserInfo" parameterType="com.fanfan.self.bean.UserBean"  >
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            select @@IDENTITY as id
+        </selectKey>
+        insert into userinfo(name,number,sex,create_date,finish_date,weight,length,pass_word,class_id) values(
+        #{name},#{number},#{sex},#{create_date},#{finish_date},#{weight},#{length},#{pass_word},#{class_id}
+        )
+    </insert>
+    <update id="updateUserInfo" parameterType="com.fanfan.self.bean.UserBean">
+        update userinfo
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">name=#{name},</if>
+            <if test="number != null">number=#{number},</if>
+            <if test="sex != null">sex=#{sex},</if>
+            <if test="create_date != null">create_date=#{create_date},</if>
+            <if test="finish_date != null">finish_date=#{finish_date},</if>
+            <if test="weight != null">weight=#{weight},</if>
+            <if test="length != null">length=#{length},</if>
+            <if test="pass_word != null">pass_word=#{pass_word},</if>
+            <if test="class_id != null">class_id=#{class_id},</if>
+        </trim>
+        where id=#{id}
+    </update>
+    <delete id="deleteOneInfo" parameterType="int">
+        delete from userinfo where id=${id}
+    </delete>
 </mapper>
